@@ -29,7 +29,7 @@ function Boxes() {
     setCreateData(null);
   }, [createData, setLastStateUpdate, setCreateData]);
 
-  const boxHandler = () => {
+  const submitHandler = () => {
     if (!goalAmount || !addItemName) {
       setModal({
         class: "visible",
@@ -53,7 +53,7 @@ function Boxes() {
 
     setModal({
       class: "visible",
-      msg: "The fundraiser was sucessful created",
+      msg: "Box was sucessful added",
       color: "white",
     });
     setTimeout(() => {
@@ -64,6 +64,8 @@ function Boxes() {
     setGoalAmount("");
     remImage();
   };
+
+  const deleteHandler = () => {};
 
   return (
     <div
@@ -84,6 +86,7 @@ function Boxes() {
           <h4
             style={{
               textAlign: "center",
+              marginBottom: "5px",
             }}
           >
             Box details
@@ -94,7 +97,7 @@ function Boxes() {
             <input
               type="text"
               value={addItemName}
-              style={{ width: "150px" }}
+              style={{ width: "300px", height: "30px" }}
               onChange={(e) => setAddItemName(e.target.value)}
             ></input>
           </div>
@@ -103,7 +106,7 @@ function Boxes() {
             <input
               type="text"
               value={addItemName}
-              style={{ width: "150px" }}
+              style={{ width: "300px", height: "30px" }}
               onChange={(e) => setAddItemName(e.target.value)}
             ></input>
           </div>
@@ -112,8 +115,9 @@ function Boxes() {
             <input
               type="text"
               value={addItemName}
-              style={{ width: "150px" }}
+              style={{ width: "300px", height: "30px" }}
               onChange={(e) => setAddItemName(e.target.value)}
+              placeholder="YES/NO"
             ></input>
           </div>
           <div className="details">
@@ -121,8 +125,9 @@ function Boxes() {
             <input
               type="text"
               value={addItemName}
-              style={{ width: "150px" }}
+              style={{ width: "300px", height: "30px" }}
               onChange={(e) => setAddItemName(e.target.value)}
+              placeholder="YES/NO"
             ></input>
           </div>
           <div
@@ -150,8 +155,6 @@ function Boxes() {
                   style={{
                     border: "1px solid black",
                     backgroundColor: "white",
-
-                    height: "45px",
                     padding: "6px",
                   }}
                   onChange={readFile}
@@ -163,9 +166,30 @@ function Boxes() {
                 )}
               </div>
             </div>
-            <button type="button" className="button-or" onClick={boxHandler}>
-              Delete
-            </button>
+            <div
+              style={{
+                display: "flex",
+                gap: "20px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <button
+                type="button"
+                className="button-or"
+                onClick={deleteHandler}
+                style={{ marginTop: "0px" }}
+              >
+                Delete
+              </button>
+              <button
+                type="button"
+                className="button-blue"
+                onClick={submitHandler}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </form>
         <div className={`${modal.class} modal`}>

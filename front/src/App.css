@@ -93,21 +93,24 @@ form {
 }
 
 .details {
-  display: flex;
+  display: grid;
   justify-content: center;
   padding: 15px;
   margin-bottom: 15px;
+  gap: 10px;
 }
 
 .label {
   text-align: center;
   margin: 0px;
+  color: #297fba;
+  font-size: 20px;
 }
 
 .photo {
   background-color: white;
-  height: 120px;
-  width: 120px;
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
   border: 1px solid black;
 }
@@ -149,4 +152,30 @@ form {
 }
 .visible {
   display: block;
+}
+
+.button-blue-sm {
+  padding: 5px 10px;
+  box-shadow: 0 0.5rem 1rem rgb(41 127 186 / 42%) !important;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin: 0px;
+  /* width: 140px; */
+  background-color: #297fba;
+  text-align: center;
+  font-size: 14px;
+}
+
+.button-or-sm {
+  padding: 5px 10px;
+
+  box-shadow: 0 0.5rem 1rem rgb(243 107 50 / 45%) !important;
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f36b32;
+  text-align: center;
+  font-size: 14px;
 }
