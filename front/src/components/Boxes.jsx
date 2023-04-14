@@ -192,9 +192,9 @@ function Boxes() {
               }}
             >
               <option>Select to choose container</option>
-              <option value="with">Size S</option>
-              <option value="without">Size M</option>
-              <option value="with0">Size L</option>
+              <option value="s">Size S</option>
+              <option value="m">Size M</option>
+              <option value="l">Size L</option>
             </select>
             <div
               style={{
