@@ -10,11 +10,16 @@ export const GlobalProvider = ({ children }) => {
   const [clientList, setClientList] = useState([]);
   const [createData, setCreateData] = useState(null);
   const [lastStateUpdate, setLastStateUpdate] = useState(Date.now());
+  const [authRole, setAuthRole] = useState(null);
 
   const [addItemName, setAddItemName] = useState("");
   const [addItemWeight, setAddItemWeight] = useState("");
   const [isFlame, setIsFlame] = useState([]);
   const [isPer, setIsPer] = useState([]);
+
+  const [containerS, setContainerS] = useState([]);
+  const [containerM, setContainerM] = useState([]);
+  const [containerL, setContainerL] = useState([]);
 
   const logOut = (_) => {
     axios
@@ -40,6 +45,14 @@ export const GlobalProvider = ({ children }) => {
         setClientList,
         setCreateData,
         createData,
+        authRole,
+        setAuthRole,
+        containerS,
+        containerM,
+        containerL,
+        setContainerS,
+        setContainerM,
+        setContainerL,
 
         lastStateUpdate,
         setLastStateUpdate,

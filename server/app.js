@@ -141,6 +141,20 @@ app.post("/boxes", (req, res) => {
   );
 });
 
+app.get("/containers", (req, res) => {
+  const sql = `
+        SELECT id, name, weight, photo
+        FROM box
+        
+        
+    
+    `;
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Bank is on port number: ${port}`);
 });

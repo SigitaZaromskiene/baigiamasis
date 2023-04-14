@@ -8,7 +8,7 @@ function Login(props) {
   const [name, setName] = useState("");
   const [psw, setPsw] = useState("");
 
-  const { setRoute, setLogged, setAuthName } = useContext(Global);
+  const { setRoute, setLogged, setAuthName, logged } = useContext(Global);
 
   const login = (_) => {
     axios
@@ -32,6 +32,8 @@ function Login(props) {
         }
       });
   };
+
+  console.log(logged);
 
   return (
     <div

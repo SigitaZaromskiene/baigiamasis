@@ -1,4 +1,34 @@
+import { useContext } from "react";
+import { Global } from "./Global";
+import { useEffect } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+
 function Containers() {
+  const URL = "http://localhost:3003/containers";
+
+  const {
+    containerS,
+    containerM,
+    containerL,
+    setContainerS,
+    setContainerM,
+    setContainerL,
+    createData,
+    lastStateUpdate,
+    clientList,
+    setClientList,
+  } = useContext(Global);
+
+  useEffect(() => {
+    if (lastStateUpdate === null) {
+      return;
+    }
+    axios.get(URL).then((res) => {
+      setClientList(res.data);
+    });
+  }, [lastStateUpdate]);
+
   return (
     <div
       style={{
@@ -9,9 +39,28 @@ function Containers() {
       }}
     >
       <div className="flex">
-        <div className="container-column">1</div>
-        <div className="container-column">2</div>
-        <div className="container-column">3</div>
+        {clientList.map((con) => (
+          <div className="container-column" key={uuidv4()}>
+            <p>{con.name}</p>
+            <p>{con.weight}</p>
+          </div>
+        ))}
+        {/* {containerM
+          ? containerS.map((con) => (
+              <div className="container-column">
+                <p>{con.name}</p>
+                <p>{con.weight}</p>
+              </div>
+            ))
+          : null}
+        {containerL
+          ? containerS.map((con) => (
+              <div className="container-column">
+                <p>{con.name}</p>
+                <p>{con.weight}</p>
+              </div>
+            ))
+          : null} */}
       </div>
     </div>
   );
