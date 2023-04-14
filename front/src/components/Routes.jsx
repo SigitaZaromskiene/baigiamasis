@@ -8,6 +8,7 @@ import Boxes from "./Boxes";
 import Nav from "./Nav";
 import Home from "./Home";
 import NavAdmin from "./NavAdmin";
+import ContainersSummary from "./ContainersSummary";
 
 function Routes() {
   const { route } = useContext(Global);
@@ -29,6 +30,14 @@ function Routes() {
         <>
           <Nav></Nav>
           <Home></Home>
+        </>
+      );
+
+    case "containerSummary":
+      return (
+        <>
+          <Nav></Nav>
+          <ContainersSummary />
         </>
       );
 

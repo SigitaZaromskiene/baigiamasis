@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 function Containers() {
   const URL = "http://localhost:3003/containers";
+  const IMG = "http://localhost:3003/img/";
 
   const {
     containerS,
@@ -40,9 +41,23 @@ function Containers() {
     >
       <div className="flex">
         {clientList.map((con) => (
-          <div className="container-column" key={uuidv4()}>
-            <p>{con.name}</p>
-            <p>{con.weight}</p>
+          <div
+            className="container-column"
+            key={uuidv4()}
+            style={{ display: "flex", gap: "40px", justifyContent: "center" }}
+          >
+            <p style={{ fontSize: "24px" }}>{con.name}</p>
+            <p style={{ fontSize: "24px" }}>{con.weight}kg</p>
+
+            <img
+              style={{
+                width: "120px",
+                height: "120px",
+                borderRadius: "50%",
+              }}
+              src={IMG + con.photo}
+              alt="project-foto"
+            />
           </div>
         ))}
         {/* {containerM

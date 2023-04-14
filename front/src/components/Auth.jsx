@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import axios from "axios";
+import Login from "./LoginAdmin";
 import { Global } from "./Global";
-import LoginAdmin from "./LoginAdmin";
 
 function Auth({ children, roles }) {
   const { setAuthRole, setAuthName, logged, setLogged, route, setUpdateUsers } =
@@ -37,7 +37,7 @@ function Auth({ children, roles }) {
     return <>{children}</>;
   }
   if (2 === logged) {
-    return <LoginAdmin />;
+    return <Login />;
   }
 }
 

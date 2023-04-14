@@ -28,10 +28,9 @@ function Nav(props) {
         <h3 style={{ color: "#161616", margin: "0px" }}>
           trans<span style={{ color: "#297FBA" }}>IT</span>me
         </h3>
-        <p className="nav-a" onClick={() => setRoute("list")}>
+        <p className="nav-a" onClick={() => setRoute("containerSummary")}>
           Containers
         </p>
-
       </div>
       <div
         style={{

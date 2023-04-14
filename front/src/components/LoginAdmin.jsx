@@ -33,15 +33,13 @@ function Login(props) {
       });
   };
 
-  console.log(logged);
-
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "845px",
+        height: "830px",
         backgroundImage:
           "linear-gradient(rgba(41, 127, 186, 0.7), rgba(0, 0, 0, 0.52))",
         backgroundSize: "cover",
