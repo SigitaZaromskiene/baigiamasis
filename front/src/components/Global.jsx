@@ -12,6 +12,9 @@ export const GlobalProvider = ({ children }) => {
   const [lastStateUpdate, setLastStateUpdate] = useState(Date.now());
 
   const [addItemName, setAddItemName] = useState("");
+  const [addItemWeight, setAddItemWeight] = useState("");
+  const [isFlame, setIsFlame] = useState([]);
+  const [isPer, setIsPer] = useState([]);
 
   const logOut = (_) => {
     axios
@@ -37,10 +40,17 @@ export const GlobalProvider = ({ children }) => {
         setClientList,
         setCreateData,
         createData,
-        addItemName,
-        setAddItemName,
+
         lastStateUpdate,
         setLastStateUpdate,
+        addItemName,
+        setAddItemName,
+        addItemWeight,
+        setAddItemWeight,
+        isFlame,
+        setIsFlame,
+        isPer,
+        setIsPer,
       }}
     >
       {children}

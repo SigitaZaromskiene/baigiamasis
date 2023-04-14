@@ -11,13 +11,17 @@ function Boxes() {
   const [modal, setModal] = useState({ class: "hidden", msg: "", color: "" });
 
   const {
-    goalAmount,
-    setGoalAmount,
     createData,
     setCreateData,
     setLastStateUpdate,
     addItemName,
     setAddItemName,
+    addItemWeight,
+    setAddItemWeight,
+    isFlame,
+    setIsFlame,
+    isPer,
+    setIsPer,
   } = useContext(Global);
 
   useEffect(() => {
@@ -30,10 +34,10 @@ function Boxes() {
   }, [createData, setLastStateUpdate, setCreateData]);
 
   const submitHandler = () => {
-    if (!goalAmount || !addItemName) {
+    if (!addItemWeight || !addItemName || !isPer || !isFlame) {
       setModal({
         class: "visible",
-        msg: "Please fill all fields",
+        msg: "Please fill all information about item",
         color: "red",
       });
       setTimeout(() => {
@@ -45,10 +49,9 @@ function Boxes() {
     setCreateData({
       name: addItemName,
       file,
-      amount: goalAmount,
-      raised: 0,
-      leftTill: goalAmount,
-      blocked: 0,
+      weight: addItemWeight,
+      isPer: 0,
+      isFlame: 0,
     });
 
     setModal({
@@ -61,16 +64,21 @@ function Boxes() {
     }, 2000);
 
     setAddItemName("");
-    setGoalAmount("");
+    setAddItemWeight("");
     remImage();
   };
 
-  const deleteHandler = () => {};
+  const deleteHandler = () => {
+    setIsFlame("");
+    setIsPer("");
+    setAddItemName("");
+    setAddItemWeight("");
+    remImage();
+  };
 
   return (
     <div
       style={{
-        height: "875px",
         backgroundImage:
           "linear-gradient(rgba(41, 127, 186, 0.7), rgba(0, 0, 0, 0.52))",
       }}
@@ -79,7 +87,8 @@ function Boxes() {
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "40px",
+          paddingTop: "20px",
+          paddingBottom: "20px",
         }}
       >
         <form>
@@ -105,18 +114,18 @@ function Boxes() {
             <label className="label">Items weight</label>
             <input
               type="text"
-              value={addItemName}
+              value={addItemWeight}
               style={{ width: "300px", height: "30px" }}
-              onChange={(e) => setAddItemName(e.target.value)}
+              onChange={(e) => setAddItemWeight(e.target.value)}
             ></input>
           </div>
           <div className="details">
             <label className="label">Is flammable?</label>
             <input
               type="text"
-              value={addItemName}
+              value={isFlame}
               style={{ width: "300px", height: "30px" }}
-              onChange={(e) => setAddItemName(e.target.value)}
+              onChange={(e) => setIsFlame(e.target.value)}
               placeholder="YES/NO"
             ></input>
           </div>
@@ -124,9 +133,9 @@ function Boxes() {
             <label className="label">Is perishable?</label>
             <input
               type="text"
-              value={addItemName}
+              value={isPer}
               style={{ width: "300px", height: "30px" }}
-              onChange={(e) => setAddItemName(e.target.value)}
+              onChange={(e) => setIsPer(e.target.value)}
               placeholder="YES/NO"
             ></input>
           </div>

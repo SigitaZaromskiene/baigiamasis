@@ -93,6 +93,54 @@ app.post("/logout", (req, res) => {
   });
 });
 
+app.post("/boxes", (req, res) => {
+  let fileName = null;
+
+  if (req.body.file !== null) {
+    let type = "unknown";
+    let file;
+
+    if (req.body.file.indexOf("data:image/png;base64,") === 0) {
+      type = "png";
+      file = Buffer.from(
+        req.body.file.replace("data:image/png;base64,", ""),
+        "base64"
+      );
+    } else if (req.body.file.indexOf("data:image/jpeg;base64,") === 0) {
+      type = "jpg";
+      file = Buffer.from(
+        req.body.file.replace("data:image/jpeg;base64,", ""),
+        "base64"
+      );
+    } else {
+      file = Buffer.from(req.body.file, "base64");
+    }
+
+    fileName = uuidv4() + "." + type;
+
+    fs.writeFileSync("./public/img/" + fileName, file);
+  }
+
+  const sql = `
+        INSERT INTO box (name, weight, isPer, isFlame, photo)
+        VALUES (?, ?, ?, ?, ?)
+    `;
+  con.query(
+    sql,
+    [
+      req.body.name,
+      req.body.weight,
+      req.body.isPer,
+      req.body.isFlame,
+      fileName,
+    ],
+    (err) => {
+      if (err) throw err;
+      res.json({});
+    }
+  );
+});
+
 app.listen(port, () => {
   console.log(`Bank is on port number: ${port}`);
 });
