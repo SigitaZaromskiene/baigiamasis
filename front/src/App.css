@@ -35,10 +35,38 @@
   text-align: center;
 }
 
-h3 {
+h3,
+h4 {
   clear: both;
   color: black;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 24px;
+}
+
+.form-login {
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 400px;
+  padding: 20px 30px;
+}
+
+.button-or {
+  padding: 10px 20px;
+  box-shadow: 0 0.5rem 1rem rgb(243 107 50 / 45%) !important;
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f36b32;
+  text-align: center;
+
+  width: 100px;
+}
+
+.button-or:hover {
+  background-color: white;
+  color: #f36b32;
+  cursor: pointer;
+  text-align: center;
 }

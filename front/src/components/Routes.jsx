@@ -7,6 +7,7 @@ import Containers from "./Containers";
 import Boxes from "./Boxes";
 import Nav from "./Nav";
 import Home from "./Home";
+import NavAdmin from "./NavAdmin";
 
 function Routes() {
   const { route } = useContext(Global);
@@ -18,6 +19,14 @@ function Routes() {
     case "home":
       return (
         <>
+          <NavAdmin></NavAdmin>
+          <Home></Home>
+        </>
+      );
+
+    case "all":
+      return (
+        <>
           <Nav></Nav>
           <Home></Home>
         </>
@@ -26,7 +35,7 @@ function Routes() {
     case "boxes":
       return (
         <>
-          <Nav></Nav>
+          <NavAdmin></NavAdmin>
           <Boxes></Boxes>
         </>
       );
@@ -35,7 +44,7 @@ function Routes() {
       return (
         <>
           {/* // <Auth roles={"manager, admin"}> */}
-          <Nav></Nav>
+          <NavAdmin></NavAdmin>
           <Containers></Containers>
         </>
         // </Auth>
