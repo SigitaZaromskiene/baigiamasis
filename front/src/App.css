@@ -4,6 +4,7 @@
   align-items: center;
   padding: 20px 30px;
   justify-content: space-between;
+  height: 100px;
 }
 
 .nav-a {
@@ -69,4 +70,83 @@ h4 {
   color: #f36b32;
   cursor: pointer;
   text-align: center;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.container-column {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border: 1px solid black;
+}
+
+form {
+  width: 600px;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 15px;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.label {
+  text-align: center;
+  margin: 0px;
+}
+
+.photo {
+  background-color: white;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 10vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: hsla(0, 0%, 0%, 80%);
+}
+
+.modalA {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: hsla(0, 3%, 47%, 0.611);
+}
+.modal > p,
+.modalA > div {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  background-color: white;
+  border-radius: 0.5em;
+}
+
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
 }

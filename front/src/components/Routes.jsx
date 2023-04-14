@@ -18,10 +18,10 @@ function Routes() {
   switch (route) {
     case "home":
       return (
-        <>
+        <Auth roles={"admin"}>
           <NavAdmin></NavAdmin>
           <Home></Home>
-        </>
+        </Auth>
       );
 
     case "all":
@@ -34,20 +34,18 @@ function Routes() {
 
     case "boxes":
       return (
-        <>
+        <Auth roles={"admin"}>
           <NavAdmin></NavAdmin>
           <Boxes></Boxes>
-        </>
+        </Auth>
       );
 
     case "containers":
       return (
-        <>
-          {/* // <Auth roles={"manager, admin"}> */}
+        <Auth roles={"admin"}>
           <NavAdmin></NavAdmin>
           <Containers></Containers>
-        </>
-        // </Auth>
+        </Auth>
       );
 
     case "login":
@@ -57,14 +55,6 @@ function Routes() {
           <LoginAdmin></LoginAdmin>
         </>
       );
-
-    // case "fundraisers":
-    //   return (
-    //     <>
-    //       <Nav></Nav>
-    //       <Fundraisers></Fundraisers>
-    //     </>
-    //   );
 
     default:
       return null;

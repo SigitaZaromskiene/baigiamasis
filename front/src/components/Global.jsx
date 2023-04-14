@@ -9,6 +9,9 @@ export const GlobalProvider = ({ children }) => {
   const [authName, setAuthName] = useState(null);
   const [clientList, setClientList] = useState([]);
   const [createData, setCreateData] = useState(null);
+  const [lastStateUpdate, setLastStateUpdate] = useState(Date.now());
+
+  const [addItemName, setAddItemName] = useState("");
 
   const logOut = (_) => {
     axios
@@ -34,6 +37,10 @@ export const GlobalProvider = ({ children }) => {
         setClientList,
         setCreateData,
         createData,
+        addItemName,
+        setAddItemName,
+        lastStateUpdate,
+        setLastStateUpdate,
       }}
     >
       {children}
